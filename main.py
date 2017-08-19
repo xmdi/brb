@@ -52,10 +52,10 @@ def getPoints(b,em):
 
 def mainloop(em,pw):
     b = webdriver.Chrome() 
-    doSearches(b,1,em,pw) # pc searches
+    doSearches(b,30,em,pw) # pc searches
     capabilities={'chromeOptions':{'mobileEmulation':{'deviceName':'Nexus 7'}}}
     b.start_session(capabilities) 
-    doSearches(b,1,em,pw) # mobile searches
+    doSearches(b,20,em,pw) # mobile searches
     getPoints(b,em)
     b.quit()
 
