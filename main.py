@@ -48,7 +48,7 @@ def getPoints(b,em):
     global cv
     b.get('https://account.microsoft.com/rewards')
     q=int(b.find_element_by_xpath('//*[@id="dashboard"]/div[2]/div[1]/div/div[1]').text.replace(',','')) 
-    print(em[:10],'...','%8s'%str(q),'pts,','$%.2f'%(q/5250))
+    print(em[:10],'...','%8s'%str(q),'pts,','$%.2f'%(q*5/5250))
     cv+=q
 
 def mainloop(em,pw,PROXY):
@@ -92,5 +92,5 @@ with open('credentials.txt','r+') as f:
     for elem in f.readlines():
         mainloop(elem.split(',')[0].strip(),elem.split(',')[1].strip(),PROXIES[na])
         na+=1
-print('TOTALS .......','%8s'%str(cv),'pts,','$%.2f'%(cv/5250))
+print('TOTALS .......','%8s'%str(cv),'pts,','$%.2f'%(cv*5/5250))
 print(na,'account(s) completed in',time.time()-t0,'seconds.')
