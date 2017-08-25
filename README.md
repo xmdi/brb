@@ -3,8 +3,8 @@ Bing Rewards Bot - this python script earns Microsoft Rewards points for searche
 
 Dependencies: `Selenium, chromedriver`
 
-It uses a CSV of login credentials in credentials.txt (email, password).
+Usage: `python main.py credentials.txt` 
 
-Usage: `python main.py` 
+Create a text file with the credentials (email password /n)
 
 Proxies technically supported with `-p` but Microsoft often requires authentication for unfamiliar IPs.
