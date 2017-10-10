@@ -64,6 +64,7 @@ def getPoints(b,flag):
 def mainloop(em,pw,PROXY):
     print(em[:10],'...',end='',flush=True)
     op=webdriver.ChromeOptions()
+    op.add_argument('headless')
     if po:
         op.add_argument('--proxy-server=%s'%PROXY)
     b=webdriver.Chrome(chrome_options=op) 
@@ -72,6 +73,7 @@ def mainloop(em,pw,PROXY):
     doSearches(b,p) # pc searches
     capabilities={'chromeOptions':{'mobileEmulation':{'deviceName':'Galaxy S III'}}}
     b.start_session(capabilities) 
+    b.set_window_size(0,0)
     logIn(b,em,pw)
     doSearches(b,m) # mobile searches
     getPoints(b,1)
